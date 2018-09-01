@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lottery.Data.Model
 {
-    public class Class1
+    public interface IEntity
     {
+        int Id { get; set; }
     }
 }
