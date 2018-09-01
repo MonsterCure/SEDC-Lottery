@@ -63,9 +63,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Lottery.WebAPI\Lottery.WebAPI.csproj">
-      <Project>{5AD5C610-E1E9-4B52-9070-C18E3074680C}</Project>
-      <Name>Lottery.WebAPI</Name>
+    <ProjectReference Include="..\Lottery.Service\Lottery.Service.csproj">
+      <Project>{0bcbffe9-461e-43fb-a47e-25cfd6e6529f}</Project>
+      <Name>Lottery.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lottery.View.Model\Lottery.View.Model.csproj">
+      <Project>{875b1480-c74d-4d79-862c-9a826f68278b}</Project>
+      <Name>Lottery.View.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

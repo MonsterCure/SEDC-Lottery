@@ -105,6 +105,16 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lottery.Service\Lottery.Service.csproj">
+      <Project>{0bcbffe9-461e-43fb-a47e-25cfd6e6529f}</Project>
+      <Name>Lottery.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lottery.View.Model\Lottery.View.Model.csproj">
+      <Project>{875b1480-c74d-4d79-862c-9a826f68278b}</Project>
+      <Name>Lottery.View.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
