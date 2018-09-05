@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lottery.Data.Model
 {
@@ -22,6 +17,6 @@ namespace Lottery.Data.Model
 
         public int AwardQuantity { get; set; }
 
-        public byte RuffledType { get; set; } //ENUM values: Immediate/PerDay/Final
+        public byte RaffledType { get; set; } //ENUM values: Immediate/PerDay/Final
     }
 }

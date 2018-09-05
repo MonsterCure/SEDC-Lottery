@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lottery.Data.Model.Migrations
 {
@@ -40,9 +37,9 @@ namespace Lottery.Data.Model.Migrations
 
             var awards = new List<Award>
             {
-                new Award { AwardName = "Beer", AwardDescription = "You won a beer!", AwardQuantity = 100, RuffledType = (byte) RuffledType.Immediate },
-                new Award { AwardName = "iPhoneX", AwardDescription = "You won an iPhoneX!", AwardQuantity = 20, RuffledType = (byte) RuffledType.PerDay },
-                new Award { AwardName = "Volkswagen Polo", AwardDescription = "You won a Volkswagen Polo!", AwardQuantity = 2, RuffledType = (byte) RuffledType.Final }
+                new Award { AwardName = "Beer", AwardDescription = "You won a beer!", AwardQuantity = 100, RaffledType = (byte) RaffledType.Immediate },
+                new Award { AwardName = "iPhoneX", AwardDescription = "You won an iPhoneX!", AwardQuantity = 20, RaffledType = (byte) RaffledType.PerDay },
+                new Award { AwardName = "Volkswagen Polo", AwardDescription = "You won a Volkswagen Polo!", AwardQuantity = 2, RaffledType = (byte) RaffledType.Final }
             };
 
             context.Awards.AddRange(awards);

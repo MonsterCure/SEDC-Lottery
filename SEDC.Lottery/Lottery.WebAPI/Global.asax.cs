@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Lottery.WebAPI.App_Start;
 using System.Web.Http;
-using System.Web.Routing;
 
 namespace Lottery.WebAPI
 {
@@ -12,6 +8,7 @@ namespace Lottery.WebAPI
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+            IocConfig.Initialize(GlobalConfiguration.Configuration);
         }
     }
 }

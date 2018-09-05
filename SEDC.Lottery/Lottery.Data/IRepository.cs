@@ -1,9 +1,5 @@
 ﻿using Lottery.Data.Model;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lottery.Data
 {
@@ -17,6 +13,6 @@ namespace Lottery.Data
 
         IQueryable<T> GetAll();
 
-        T GetById(int Id);
+        T GetById(int id);
     }
 }

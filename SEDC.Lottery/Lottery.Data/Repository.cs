@@ -1,10 +1,6 @@
 ﻿using Lottery.Data.Model;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lottery.Data
 {
@@ -38,9 +34,9 @@ namespace Lottery.Data
             return DbSet;
         }
 
-        public T GetById(int Id)
+        public T GetById(int id)
         {
-            return DbSet.Find(Id);
+            return DbSet.Find(id);
         }
     }
 }
