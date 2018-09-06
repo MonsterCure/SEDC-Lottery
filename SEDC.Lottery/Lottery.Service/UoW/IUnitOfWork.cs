@@ -1,0 +1,16 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lottery.Service.UoW
+{
+    public interface IUnitOfWork : IDisposable
+    {
+        /// <summary>
+        /// Commits all changes
+        /// </summary>
+        void Commit();
+    }
+}

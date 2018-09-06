@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Integration.WebApi;
 using Lottery.Service;
+using Lottery.Service.IoC.Autofac;
 using System.Reflection;
 using System.Web.Http;
 
@@ -8,7 +9,7 @@ namespace Lottery.WebAPI.App_Start
 {
     public class IocConfig
     {
-        public static IContainer Container;
+        public static IContainer Container; // one container for the whole app, static
 
         public static void Initialize(HttpConfiguration config)
         {
@@ -29,7 +30,8 @@ namespace Lottery.WebAPI.App_Start
                 .As<ILotteryManager>()
                 .InstancePerRequest();
 
-            //builder.RegisterModule(new ServiceModule());
+            builder.RegisterModule(new ServiceModule()); // registering the ServiceModule from the business layer
+            //one IoC container, configured here, with possible multiple module registered to it, from all over the app
 
             return builder.Build();
         }
