@@ -7,6 +7,6 @@ namespace Lottery.Service
     {
         AwardModel CheckCode(UserCodeModel userCodeModel);
 
-        //List<UserCodeAwardModel> GetWinnerList();
+        List<UserCodeAwardModel> GetAllWinners();
     }
 }

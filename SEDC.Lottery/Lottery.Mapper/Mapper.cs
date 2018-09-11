@@ -19,7 +19,7 @@ namespace Lottery.Mapper
                 if(property != null)
                 {
                     var propertyValue = propertyInfo.GetValue(dbModel, null);
-                    if(propertyValue is string || propertyValue is DateTime)
+                    if(propertyValue is string || propertyValue is DateTime) //only string and DateTime because there are no properties of any other types in the models used in this project
                     {
                         property.SetValue(model, propertyValue);
                     }

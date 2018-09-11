@@ -2,6 +2,7 @@
 using Lottery.Data.Model;
 using Lottery.View.Model;
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 
@@ -55,6 +56,11 @@ namespace Lottery.Service
                 AwardName = award.AwardName,
                 AwardDescription = award.AwardDescription
             };
+        }
+
+        public List<UserCodeAwardModel> GetAllWinners()
+        {
+            return new List<UserCodeAwardModel>();
         }
     }
 }

@@ -20,10 +20,10 @@ namespace Lottery.WebAPI.Controllers
             return _lotteryManager.CheckCode(userCodeModel);
         }
 
-        //[HttpGet]
-        //public List<UserCodeAwardModel> GetAllWinners()
-        //{
-        //    return _lotteryManager.GetWinnerList();
-        //}
+        [HttpGet]
+        public List<UserCodeAwardModel> GetAllWinners()
+        {
+            return _lotteryManager.GetAllWinners();
+        }
     }
 }

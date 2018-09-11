@@ -31,7 +31,7 @@ namespace Lottery.WebAPI.App_Start
                 .InstancePerRequest();
 
             builder.RegisterModule(new ServiceModule()); // registering the ServiceModule from the business layer
-            //one IoC container, configured here, with possible multiple module registered to it, from all over the app
+            //one IoC container, configured here, with possible multiple modules registered to it, from all over the app
 
             return builder.Build();
         }
