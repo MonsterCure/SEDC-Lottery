@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xl">
+      <table  class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Full name</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Award</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let winner of winners">
+            <td scope="col">{{winner.userCode.firstName}} {{winner.userCode.lastName}}</td>
+            <td scope="col">{{winner.userCode.eMail}}</td>
+            <td scope="col">{{winner.award.awardName}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
