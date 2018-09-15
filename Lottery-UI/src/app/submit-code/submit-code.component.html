@@ -1,0 +1,39 @@
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-xl">
+      <h2>Submit your code</h2>
+    </div>
+    <br>
+    <div class="col-xl">
+      <a class="btn btn-primary" [routerLink]="['/winners']">See winners</a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <form NgNativeValidate (submit)="submit()">
+    <!--(click) specified on whole form, thus on its submit, not just the submit button-->
+    <div class="form-group">
+      <label for="inputFirstName">First name</label>
+      <input type="text" class="form-control" id="inputFirstName" name="firstName" placeholder="Enter first name"
+        [(ngModel)]="userCode.firstName" required>
+    </div>
+    <div class="form-group">
+      <label for="inputLastName">Last name</label>
+      <input type="text" class="form-control" id="inputLastName" name="lastName" placeholder="Enter last name"
+        [(ngModel)]="userCode.lastName" required>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail">Email address</label>
+      <input type="email" class="form-control" id="inputEmail" name="eMail" aria-describedby="emailHelp" placeholder="Enter email"
+        [(ngModel)]="userCode.eMail" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="inputCode">Code</label>
+      <input type="code" class="form-control" id="inputCode" name="code" placeholder="Code" [(ngModel)]="userCode.code.codeValue"
+        required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
