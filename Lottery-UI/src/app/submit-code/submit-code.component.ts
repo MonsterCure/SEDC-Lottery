@@ -23,9 +23,13 @@ export class SubmitCodeComponent implements OnInit {
   submit() {
     this.submitCodeService.submitCode(this.userCode).subscribe(
       (result) => {
-        this.toastrService.success(result.awardDescription);
-        this.router.navigate(['winners']);
-        // this.winnersListService.getAllWinners();
+        if (!!result) { //casting result to a boolean with !!, to make sure it's a boolean
+          this.toastrService.success(result.awardDescription);
+          this.router.navigate(['winners']);
+          // this.winnersListService.getAllWinners();
+        } else {
+          this.toastrService.info('Better luck next time.', 'Info');
+        }
       },
       (error) => {
         this.toastrService.error(error.error.exceptionMessage, 'Error!');
