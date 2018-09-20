@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  //webApiUrl: 'http://www.lottery-api.com/api/lottery/'
+  webApiUrl: 'http://www.lottery-api.com/api/lottery/' //iis url
 };
 
 /*

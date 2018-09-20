@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IUserCode, IAward } from '../winners-list/winners-list.model';
+import { environment } from '../../environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -15,6 +16,7 @@ export class SubmitCodeService {
     }
 
     submitCode(userCode: IUserCode) : Observable<IAward> { //async function, return Observable of IAward, the post maps the result to IAward
-        return this.http.post<IAward>(this.lotteryUrl + 'submitCode', userCode);
+        // return this.http.post<IAward>(this.lotteryUrl + 'submitCode', userCode);
+        return this.http.post<IAward>(environment.webApiUrl + 'submitCode', userCode);
     }
 }

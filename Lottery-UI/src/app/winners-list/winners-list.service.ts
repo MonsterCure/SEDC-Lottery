@@ -16,7 +16,7 @@ export class WinnersListService {
     }
 
     getAllWinners(): Observable<Array<IUserCodeAward>> {
-        return this.httpClient.get<Array<IUserCodeAward>>(this.winnersUrl + "getAllWinners");
-        //return this.httpClient.get<Array<IUserCodeAward>>(environment.webApiUrl + "getAllWinners");
+        // return this.httpClient.get<Array<IUserCodeAward>>(this.winnersUrl + "getAllWinners");
+        return this.httpClient.get<Array<IUserCodeAward>>(environment.webApiUrl + "getAllWinners");
     }
 }
