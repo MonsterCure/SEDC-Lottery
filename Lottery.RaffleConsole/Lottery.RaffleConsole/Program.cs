@@ -18,11 +18,11 @@ namespace Lottery.RaffleConsole
             var configuration = serviceProvider.GetService<IConfigurationRoot>();
             var finalRaffle = DateTime.Parse(configuration.GetSection("FinalRaffle").Value);
 
-            if(DateTime.Now <= finalRaffle)
+            if (DateTime.Now <= finalRaffle)
             {
                 lotteryManager.GiveAwards(RaffledType.PerDay);
             }
-            else if(DateTime.Now == finalRaffle)
+            else if (DateTime.Now == finalRaffle)
             {
                 lotteryManager.GiveAwards(RaffledType.Final);
             }
