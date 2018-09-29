@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Lottery.Data.Model
 {
-    [Table("dbo.UserCodes")]
+    [Table("UserCodes")]
     public class UserCode : IEntity
     {
         [Key]

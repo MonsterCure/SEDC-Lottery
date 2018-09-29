@@ -5,6 +5,7 @@ using System.Text;
 using Lottery.Data;
 using Lottery.Data.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace Lottery.Service
 {
@@ -13,21 +14,38 @@ namespace Lottery.Service
         private readonly IRepository<Award> _awardRepository;
         private readonly IRepository<UserCodeAward> _userCodeAwardRepository;
         private readonly IRepository<UserCode> _userCodeRepository;
+        private readonly IConfigurationRoot _configurationRoot;
 
-        public LotteryManager(IRepository<Award> awardRepository, IRepository<UserCodeAward> userCodeAwardRepository, IRepository<UserCode> userCodeRepository)
+        public LotteryManager(IRepository<Award> awardRepository, IRepository<UserCodeAward> userCodeAwardRepository, IRepository<UserCode> userCodeRepository, IConfigurationRoot configurationRoot)
         {
             _awardRepository = awardRepository;
             _userCodeAwardRepository = userCodeAwardRepository;
             _userCodeRepository = userCodeRepository;
+            _configurationRoot = configurationRoot;
+        }
+
+        public void Raffle()
+        {
+            var finalRaffle = DateTime.Parse(_configurationRoot.GetSection("finalRaffle").Value);
+
+            if (DateTime.Now <= finalRaffle)
+            {
+                GiveAwards(RaffledType.PerDay);
+            }
+            else if (DateTime.Now == finalRaffle)
+            {
+                GiveAwards(RaffledType.Final);
+            }
         }
 
         public void GiveAwards(RaffledType type)
         {
             var numberOfAwards = GetAwardQuantityPerType(type);
 
+
             for (var i = 0; i < numberOfAwards; i++)
             {
-                GiveAwards(type);
+                GiveAward(type);
             }
 
             //var users = _userCodeRepository.GetAll().Include(x => x.Code).Where(x => !x.Code.IsWinning);
@@ -75,7 +93,7 @@ namespace Lottery.Service
 
         private int GetAwardQuantityPerType(RaffledType type)
         {
-            var awardsQuantity = _awardRepository.GetAll().Where(x => x.RaffledType == (byte) type).Select(x => x.AwardQuantity).Sum();
+            var awardsQuantity = _awardRepository.GetAll().Where(x => x.RaffledType == (byte) type).Sum(x => x.AwardQuantity);
 
             return awardsQuantity;
         }

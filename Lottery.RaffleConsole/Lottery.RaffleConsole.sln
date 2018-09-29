@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.RaffleConsole", "Lottery.RaffleConsole\Lottery.RaffleConsole.csproj", "{6951B40A-66F7-4228-B65D-99943236F640}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lottery.RaffleConsole", "Lottery.RaffleConsole\Lottery.RaffleConsole.csproj", "{6951B40A-66F7-4228-B65D-99943236F640}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Data.Model", "Lottery.Data.Model\Lottery.Data.Model.csproj", "{338A90EC-5D40-4EA0-94F4-1908235A08A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lottery.Data.Model", "Lottery.Data.Model\Lottery.Data.Model.csproj", "{338A90EC-5D40-4EA0-94F4-1908235A08A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Data", "Lottery.Data\Lottery.Data.csproj", "{E2A2B3C2-BE6C-4BB0-BC14-A008300E78E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lottery.Data", "Lottery.Data\Lottery.Data.csproj", "{E2A2B3C2-BE6C-4BB0-BC14-A008300E78E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Service", "Lottery.Service\Lottery.Service.csproj", "{3B965D36-BC2E-4D92-B0CB-ECFBB9E648D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lottery.Service", "Lottery.Service\Lottery.Service.csproj", "{3B965D36-BC2E-4D92-B0CB-ECFBB9E648D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lottery.Schedule", "Lottery.Schedule\Lottery.Schedule.csproj", "{65AE1616-52F4-44CA-AEBA-1D06B0868B10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{3B965D36-BC2E-4D92-B0CB-ECFBB9E648D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B965D36-BC2E-4D92-B0CB-ECFBB9E648D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B965D36-BC2E-4D92-B0CB-ECFBB9E648D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65AE1616-52F4-44CA-AEBA-1D06B0868B10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65AE1616-52F4-44CA-AEBA-1D06B0868B10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65AE1616-52F4-44CA-AEBA-1D06B0868B10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65AE1616-52F4-44CA-AEBA-1D06B0868B10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
