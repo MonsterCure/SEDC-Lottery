@@ -1,5 +1,7 @@
 ﻿using Lottery.Data;
 using Lottery.Data.Model;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using OfficeOpenXml;
 using System;
 using System.Collections.Generic;
@@ -19,17 +21,38 @@ namespace Lottery.Service
             _excelManager = excelManager;
         }
 
-        public void ProcessCodes()
+        public async void ProcessCodes()
         {
-            var client = new HttpClient();
-            client.BaseAddress = new Uri(""); // TODO: set Azure BLOB path
+            //var client = new HttpClient();
+            //client.BaseAddress = new Uri(""); // TODO: set Azure BLOB path
 
-            using (var stream = client.GetStreamAsync("codes.xlsx").Result)
+            //using (var stream = client.GetStreamAsync("codes.xlsx").Result)
+            //{
+            //    _excelManager.ProcessExcelPackage(stream);
+            //}
+
+            //client.Dispose();
+
+            // but, if access key is private, we need to use SDK
+            var cloudStorageAccount = CloudStorageAccount.Parse("--connectionString--");
+
+            var cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+            var cloudContainer = cloudBlobClient.GetContainerReference("codefiles");
+
+            var filesList = await cloudContainer.ListBlobsSegmentedAsync(string.Empty, true, BlobListingDetails.None, 10, new BlobContinuationToken(), null, null);
+
+            foreach (var listBlobItem in filesList.Results)
             {
-                _excelManager.ProcessExcelPackage(stream);
-            }
+                var blobItem = (CloudBlockBlob)listBlobItem;
+                var fileBlob = cloudContainer.GetBlockBlobReference(blobItem.Name);
 
-            client.Dispose();
+                var stream = new MemoryStream();
+                await fileBlob.DownloadToStreamAsync(stream);
+
+                _excelManager.ProcessExcelPackage(stream);
+
+                await fileBlob.DeleteAsync();
+            }
         }
     }
 }

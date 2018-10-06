@@ -57,6 +57,7 @@ namespace Lottery.RaffleConsole
                 .AddSingleton(typeof(IRepository<>), typeof(Repository<>))
                 .AddSingleton<IHostedService, ScheduleTask>()
                 .AddSingleton<ICodesManager, LocalCodesManager>()
+                // OR .AddSingleton<ICodesManager, AzureCodesManager>()
                 .AddSingleton<IExcelManager, ExcelManager>()
                 .BuildServiceProvider();
 
